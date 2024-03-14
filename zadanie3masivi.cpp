@@ -16,26 +16,26 @@ public:
 
    
     void inputData() {
-        cout << "Въведете име: ";
+        cout << "Enter name: ";
         cin.ignore();  
         cin.getline(name, sizeof(name) - 1);
 
-        cout << "Въведете вид договор: (0-Срочен, 1-Граждански, 2-Безсрочен): ";
+        cout << "Enter contract type: (0-Limited, 1-Civil, 2-Unlimited): ";
         cin >> contractType;
 
-        cout << "Въведете националност: (1-Българин, 2-Чужденец): ";
+        cout << "Enter nationality: (1-Bulgarian, 2-Foreigner): ";
         cin >> nationality;
 
-        cout << "Въведете заплата: ";
+        cout << "Enter salary: ";
         cin >> salary;
     }
 
     
     void displayData() const {
-        cout << "Име: " << name << endl;
-        cout << "Вид договор: " << contractType << endl;
-        cout << "Националност: " << nationality << endl;
-        cout << "Заплата: " << salary << endl;
+        cout << "Name: " << name << endl;
+        cout << "Contract type: " << contractType << endl;
+        cout << "Nationality: " << nationality << endl;
+        cout << "Salary: " << salary << endl;
     }
 
     
@@ -55,7 +55,7 @@ int main() {
 	SetConsoleCP(1251);
     int numEmployees;
 
-    cout << "Въведете брой работници: ";
+    cout << "Enter number of employees: ";
     cin >> numEmployees;
 
     
@@ -63,20 +63,20 @@ int main() {
 
     
     for (int i = 0; i < numEmployees; ++i) {
-        cout << "Въведете данни за работник " << i + 1 << ":\n";
+        cout << "Enter data for employee " << i + 1 << ":\n";
         employees[i].inputData();
     }
 
     
     for (int i = 0; i < numEmployees; ++i) {
-        cout << "Работник " << i + 1 << ":\n";
+        cout << "Employee " << i + 1 << ":\n";
         employees[i].displayData();
         cout << endl;
     }
 
    
     int foreignWorkersCount = Company::countForeignWorkers(employees, numEmployees);
-    cout << "Брой чужденци работещи във фирмата: " << foreignWorkersCount << endl;
+    cout << "Number of foreigners in the company: " << foreignWorkersCount << endl;
 
   
     delete[] employees;
