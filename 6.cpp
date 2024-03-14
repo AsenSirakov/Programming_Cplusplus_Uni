@@ -24,25 +24,25 @@ public:
         const double withdrawalAmount = 2000;
         if (currentBalance >= withdrawalAmount) {
             currentBalance -= withdrawalAmount;
-            cout << "Тегленето е успешно. Оставащ баланс в сметката: " << currentBalance << " BGN\n";
+            cout << "Withdraw complete.Remaining balance : " << currentBalance << " BGN\n";
         } else {
-            cout << "Недостатъчно налични пари. Тегленето на " << withdrawalAmount << " BGN не е възможно.\n";
+            cout << "Insufficient funds. Withdrawal of " << withdrawalAmount << " BGN is not possible.\n";
         }
     }
 };
 
 void displayAccountInfo(const Account& acc) {
-    cout << "Номер на сметка: " << acc.accountNumber << endl;
-    cout << "Тип депозит: " << acc.depositType << endl;
-    cout << "Име на собственик: " << acc.ownerName << endl;
-    cout << "Текуща сума: " << acc.currentBalance << endl;
+    cout << "Account number: " << acc.accountNumber << endl;
+    cout << "Deposit type: " << acc.depositType << endl;
+    cout << "Name of owner: " << acc.ownerName << endl;
+    cout << "Current balance: " << acc.currentBalance << endl;
 }
 
 int main() {
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
     int numAccounts;
-    cout << "Въведете брой сметки: ";
+    cout << "Input number of accounts: ";
     cin >> numAccounts;
 
     Account* accounts = new Account[numAccounts];
@@ -52,26 +52,26 @@ int main() {
         string name;
         double initialBalance;
 
-        cout << "Въведете данни за сметка " << i + 1 << ":\n";
+        cout << "Input data for account " << i + 1 << ":\n";
 
-        cout << "Въведете номер на сметка: ";
+        cout << "Enter aacount number: ";
         cin >> accNumber;
 
-        cout << "Въведете тип депозитна сметка (0-Едномесечна, 1-Тримесечна, 2-Шестмесечна, 3-Годишна): ";
+        cout << "Enter deposit type (0-Monthly, 1-Quarter-year, 2-Half-year, 3-Yearly): ";
         cin >> depType;
 
-        cout << "Въведете име на собственик: ";
+        cout << "Enter name of owner: ";
         cin.ignore(); 
         getline(cin, name);
 
-        cout << "Въведете текуща сума: ";
+        cout << "Enter current balance: ";
         cin >> initialBalance;
 
         accounts[i] = Account(accNumber, depType, name, initialBalance);
     }
 
     for (int i = 0; i < numAccounts; ++i) {
-        cout << "Сметка " << i + 1 << ":\n";
+        cout << "Account " << i + 1 << ":\n";
         displayAccountInfo(accounts[i]);
         cout << endl;
     }
@@ -80,12 +80,12 @@ int main() {
     bool accountFound = false;
 
     while (!accountFound) {
-        cout << "Въведете номер на сметка за проверка: ";
+        cout << "Enter number of account to find in the list: ";
         cin >> accountToCheck;
 
         for (int i = 0; i < numAccounts; ++i) {
             if (accounts[i].getAccountNumber() == accountToCheck) {
-                cout << "Сметка " << accountToCheck << " е намерена в списъка.\n";
+                cout << "Account " << accountToCheck << " is found in the list.\n";
                 accounts[i].withdrawAmount(); 
                 accountFound = true;
                 break;
@@ -93,7 +93,7 @@ int main() {
         }
 
         if (!accountFound) {
-            cout << "Сметка с такъв номер не е намерена. Моля въведете правилен номер на сметка.\n";
+            cout << "Account with this number is not found. Please enter a valid number of account .\n";
         }
     }
 
