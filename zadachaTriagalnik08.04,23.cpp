@@ -33,9 +33,9 @@ public:
 int main() {
 	SetConsoleOutputCP(1251);
     Triagalnik tria(3, 4);
-    cout << "Лице на правоъгълен триъгълник: " << tria.lice() << endl;
+    cout << "Area of triangle: " << tria.lice() << endl;
     Pravougulnik sqr(3, 4);
-    cout << "Лице на правоъгълник: " << sqr.lice() << endl;
+    cout << "Area of square: " << sqr.lice() << endl;
     
     return 0;
 }
