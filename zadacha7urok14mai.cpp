@@ -23,20 +23,20 @@ public:
 int main() {
 	SetConsoleOutputCP(1251)
    
-    Person p1("Асен Сираков", 25);
-    cout << "Име: " << p1.getName() << ",Възраст: " << p1.getAge() << endl;
+    Person p1("Asen Sirakov", 25);
+    cout << "Asen: " << p1.getName() << ",Age: " << p1.getAge() << endl;
 
 
-    Person* p2 = new Person("Сашо Узунов", 30);
-    cout << "Име: " << p2->getName() << ", Възраст: " << p2->getAge() << endl;
+    Person* p2 = new Person("Sasho Uzunov", 30);
+    cout << "Name: " << p2->getName() << ", Age: " << p2->getAge() << endl;
     delete p2;
     int n = 3;
     Person** people = new Person*[n];
-    people[0] = new Person("Димитър Сираков", 20);
-    people[1] = new Person("Юлиян Дрянков", 40);
-    people[2] = new Person("Николета Кръстева", 35);
+    people[0] = new Person("Dimitar Sirakov", 20);
+    people[1] = new Person("Yulian Dryankov", 40);
+    people[2] = new Person("Nikoleta Krusteva", 35);
     for (int i = 0; i < n; i++) {
-        cout << "Име: " << people[i]->getName() << ", Възраст: " << people[i]->getAge() << endl;
+        cout << "Name: " << people[i]->getName() << ", Age: " << people[i]->getAge() << endl;
         delete people[i];
     }
     delete[] people;
